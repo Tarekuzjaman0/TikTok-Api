@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Any Video Downloader</title>
+    <link rel="icon" type="image/png" href="https://scontent.fdac80-1.fna.fbcdn.net/v/t39.30808-6/382238349_1354406292162170_2868262531907558348_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHPYuahcuzhB0H1VCabOK_BPzQP0uyjhdk_NA_S7KOF2VptrqfNXTzYlMhoq-bH8CFGNMrqPolQOCFQBDfO2Vkd&_nc_ohc=B60EXJmdEEkQ7kNvgFNycli&_nc_zt=23&_nc_ht=scontent.fdac80-1.fna&_nc_gid=A4g9f1XshPBbxiNlMo1zHrY&oh=00_AYCJ40S6NhoCQdaReACbisHXhP1PZkeo7MNdmHJvKs8QTw&oe=67A8CC72">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .loader {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .social-icons {
+            margin-top: 15px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Any Video Downloader</h1>
+        <form id="downloadForm">
+            <input type="text" id="videoUrl" placeholder="Enter Video URL" required>
+            <button type="submit">Download</button>
+        </form>
+        <div class="loader" id="loader"></div>
+        <div id="message"></div>
+        
+        <div class="social-icons">
+            <a href="https://www.facebook.com/tarekuzjaman"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/Tarekuzjaman1"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/tarekuzjaman/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/tarekuzjaman/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@TarekuzJaman0"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@tarekuzjaman"><i class="fab fa-tiktok"></i></a>
+            <a href="https://github.com/Tarekuzjaman0"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
