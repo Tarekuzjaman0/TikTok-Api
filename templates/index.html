@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Any Video Downloader</title>
+    <title>Social Video Downloader</title>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Tarekuzjaman0/TikTok-Api/refs/heads/main/templates/icon/icon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -79,12 +79,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>Any Video Downloader</h1>
+        <h1>Social Video Downloader</h1>
         <form id="downloadForm">
             <input type="text" id="videoUrl" placeholder="Enter Video URL" required>
             <button type="submit">Download</button>
         </form>
         <div class="loader" id="loader"></div>
+        <div id="progressContainer" style="display: none; width: 100%; background: #ddd; border-radius: 5px; margin-top: 10px;">
+            <div id="progressBar" style="width: 0%; height: 10px; background: #f04545; border-radius: 5px;"></div>
+        </div>
+        
         <div id="message"></div>
         
         <div class="social-icons">
