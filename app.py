@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import yt_dlp
 import os
@@ -10,6 +10,10 @@ CORS(app)  # Enable CORS
 DOWNLOAD_FOLDER = "downloads"
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
+
+@app.route('/')
+def index():
+    return render_template('index.html')  # Serve the HTML page
 
 @app.route('/download', methods=['POST'])
 def download_video():
@@ -35,10 +39,6 @@ def download_video():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-@app.route('/', methods=['GET'])
-def index():
-    return "Welcome to the YouTube Downloader API!"
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
