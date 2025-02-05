@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, send_file, render_template
 from flask_cors import CORS
 import yt_dlp
 import os
@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS
 
-# Create the download folder if it doesn't exist
+# Create the temporary download folder if it doesn't exist
 DOWNLOAD_FOLDER = "downloads"
 if not os.path.exists(DOWNLOAD_FOLDER):
     os.makedirs(DOWNLOAD_FOLDER)
@@ -35,7 +35,8 @@ def download_video():
             filename = ydl.prepare_filename(info)
             file_path = filename if filename.endswith('.mp4') else f"{filename}.mp4"
 
-        return jsonify({"success": True, "file": file_path})
+        # Send the file directly to the user
+        return send_file(file_path, as_attachment=True)
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
